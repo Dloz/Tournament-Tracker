@@ -1,0 +1,63 @@
+﻿<Window x:Class="TrackerUI.CreatePrize"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrackerUI"
+        mc:Ignorable="d"
+        Title="Create Prize" Height="439.807" Width="447.573">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip"
+                Value="{Binding RelativeSource={RelativeSource Self},
+                    Path=(Validation.Errors)[0].ErrorContent}" />
+                    <Setter Property="Foreground" Value="Red" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        
+        <Label Content="Create prize" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="40" Width="138" FontSize="22" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Label Content="Place number" HorizontalAlignment="Left" Margin="33,77,0,0" VerticalAlignment="Top" Height="40" Width="138" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Label Content="Place name" HorizontalAlignment="Left" Margin="33,122,0,0" VerticalAlignment="Top" Height="40" Width="138" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Label Content="Prize amount" HorizontalAlignment="Left" Margin="33,167,0,0" VerticalAlignment="Top" Height="40" Width="138" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <TextBox x:Name="placeNumberBox" HorizontalAlignment="Left" Height="28" Margin="219,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+            <TextBox.Text>
+                <Binding Path="PlaceNumber" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="placeNameBox" HorizontalAlignment="Left" Height="28" Margin="219,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+            <TextBox.Text>
+                <Binding Path="PlaceName" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="prizeAmountBox" HorizontalAlignment="Left" Height="28" Margin="219,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+            <TextBox.Text>
+                <Binding Path="PrizeAmount" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="-or-" HorizontalAlignment="Left" Margin="144,231,0,0" VerticalAlignment="Top" Height="40" Width="138" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5" FlowDirection="RightToLeft" HorizontalContentAlignment="Center"/>
+        <Label Content="Prize percentage" HorizontalAlignment="Left" Margin="33,289,0,0" VerticalAlignment="Top" Height="40" Width="158" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <TextBox x:Name="prizePercentageBox" HorizontalAlignment="Left" Height="28" Margin="219,289,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Create Prize" HorizontalAlignment="Left" Margin="144,334,0,0" VerticalAlignment="Top" Width="150" Height="44"
+                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4" Click="CreatePrizeButton_Click">
+            
+        </Button>
+
+    </Grid>
+</Window>
