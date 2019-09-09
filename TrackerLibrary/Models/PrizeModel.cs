@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace TrackerLibrary
+namespace TrackerLibrary.Models
 {
     /// <summary>
     /// Represents what prize is for the given place
@@ -30,7 +30,10 @@ namespace TrackerLibrary
         /// 50%).
         /// </summary>
         public double PrizePercentage { get; set; }
-
+        
+        /// <summary>
+        /// Validation of each property against business-rules.
+        /// </summary>
         public string this[string columnName] {
             get {
                 string error = String.Empty;
@@ -59,9 +62,9 @@ namespace TrackerLibrary
                         }
                         break;
                     case "PrizePercentage":
-                        if (PrizePercentage < 0)
+                        if (PrizePercentage < 0 || PrizePercentage > 100)
                         {
-                            error = "The prize percentage can not be less than 0";
+                            error = "The prize percentage can not be less than 0 or greater than 100";
                         }
                         break;
                 }

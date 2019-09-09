@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TrackerLibrary;
+using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
@@ -23,6 +24,7 @@ namespace TrackerUI
         PrizeModel prize;
         public CreatePrize()
         {
+            GlobalConfig.InitializeConnections(true, true);
             InitializeComponent();
             prize = new PrizeModel();
             this.DataContext = prize;
