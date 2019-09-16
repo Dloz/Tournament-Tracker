@@ -41,6 +41,7 @@ namespace TrackerUI
             {
                 db.CreatePrize(_prize);
             }
+
         }
     }
 }

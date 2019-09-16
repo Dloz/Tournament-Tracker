@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrackerUI"
         mc:Ignorable="d"
-        Title="Tournament Viewet" Height="450" Width="800">
+        Title="Tournament Viewer" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Tournament:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="40" Width="144" FontSize="22" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Label x:Name="TournamentNameLabel" Content="&lt;name&gt;" HorizontalAlignment="Left" Margin="159,10,0,0" VerticalAlignment="Top" Height="40" Width="96" FontSize="22" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Label Content="Round&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Height="27" Width="72" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <ComboBox HorizontalAlignment="Left" Margin="87,77,0,0" VerticalAlignment="Top" Width="168" Height="27"/>
+        <CheckBox Content="Unplayed only" HorizontalAlignment="Left" Margin="87,122,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="matchupListBox" HorizontalAlignment="Left" Height="222" Margin="10,142,0,0" VerticalAlignment="Top" Width="245"/>
+        <Label Content="Score&#xA;" HorizontalAlignment="Left" Margin="416,164,0,0" VerticalAlignment="Top" Height="27" Width="72" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Label Content="Score" HorizontalAlignment="Left" Margin="416,293,0,0" VerticalAlignment="Top" Height="27" Width="72" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="488,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="488,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <Label Content="Sample Team 1&#xA;" HorizontalAlignment="Left" Margin="416,132,0,0" VerticalAlignment="Top" Height="27" Width="192" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Label Content="VS" HorizontalAlignment="Left" Margin="467,212,0,0" VerticalAlignment="Top" Height="27" Width="72" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Label Content="Sample Team 2&#xA;" HorizontalAlignment="Left" Margin="416,261,0,0" VerticalAlignment="Top" Height="27" Width="192" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Button Content="Score" HorizontalAlignment="Left" Margin="648,212,0,0" VerticalAlignment="Top" Width="109" Height="44"
+            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4" FontSize="18" Foreground="#FF0768F5"/>
     </Grid>
 </Window>

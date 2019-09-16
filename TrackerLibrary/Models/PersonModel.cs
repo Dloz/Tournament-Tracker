@@ -9,24 +9,35 @@ namespace TrackerLibrary.Models
     public class PersonModel: IDataErrorInfo
     {
         /// <summary>
+        /// The unique identifier for the person.
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// The first name of the person.
         /// </summary>
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = "";
 
         /// <summary>
         /// The last name of the person.
         /// </summary>
-        public string LastName { get; set; }
+        public string LastName { get; set; } = "";
 
         /// <summary>
         /// The primary email address of the person.
         /// </summary>
-        public string Email { get; set; }
+        public string Email { get; set; } = "";
 
         /// <summary>
         /// The primary cellphone number of the person.
         /// </summary>
-        public string CellphoneNumber { get; set; }
+        public string CellphoneNumber { get; set; } = "";
+
+        public string FullName 
+        {
+            get {
+                return $"{ FirstName } { LastName }";
+            }
+        }
 
 
         /// <summary>
@@ -68,5 +79,15 @@ namespace TrackerLibrary.Models
         }
 
         public string Error => throw new System.NotImplementedException();
+
+        public PersonModel() { }
+
+        public PersonModel(string firstName, string lastName, string email, string cellphoneNumber)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            CellphoneNumber = cellphoneNumber;
+        }
     }
 }

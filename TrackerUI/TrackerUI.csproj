@@ -59,6 +59,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CreateTeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TournamentViewerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +77,12 @@
     </Compile>
     <Compile Include="CreatePrize.xaml.cs">
       <DependentUpon>CreatePrize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTeam.xaml.cs">
+      <DependentUpon>CreateTeam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressBar.xaml.cs">
+      <DependentUpon>ProgressBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="TournamentViewerWindow.xaml.cs">
       <DependentUpon>TournamentViewerWindow.xaml</DependentUpon>

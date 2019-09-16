@@ -11,6 +11,7 @@ namespace TrackerLibrary
     public static class GlobalConfig
     {
         public static List<IDataConnection> Connections { get; private set; } = new List<IDataConnection>();
+        public static IDataConnection Connection { get; private set; }
 
         public static void InitializeConnections(bool database, bool textFiles)
         {
@@ -24,6 +25,19 @@ namespace TrackerLibrary
             {
                 var text = new TextConnector();
                 Connections.Add(text);
+            }
+        }
+
+        public static void InitializeConnection(DatabaseType dbType)
+        {
+            if (dbType == DatabaseType.Sql)
+            {
+                Connection = new SqlConnector();
+            }
+
+            if (dbType == DatabaseType.Text)
+            {
+                Connection = new TextConnector();
             }
         }
 
