@@ -21,13 +21,15 @@ namespace TrackerUI
     /// </summary>
     public partial class CreatePrize : Window
     {
+        IPrizeRequester callingWin;
         PrizeModel prize;
-        public CreatePrize()
+        public CreatePrize(IPrizeRequester caller)
         {
             GlobalConfig.InitializeConnections(true, true);
             InitializeComponent();
             prize = new PrizeModel();
             this.DataContext = prize;
+            callingWin = caller;
         }
 
         private void CreatePrizeButton_Click(object sender, RoutedEventArgs e)
@@ -37,11 +39,22 @@ namespace TrackerUI
                 placeName: placeNameBox.Text,
                 prizeAmount: prizeAmountBox.Text,
                 prizePercentage: prizePercentageBox.Text);
-            foreach (var db in GlobalConfig.Connections)
-            {
-                db.CreatePrize(_prize);
-            }
 
+            GlobalConfig.Connection.CreatePrize(_prize);
+
+            callingWin.PrizeComplete(_prize);
+
+            this.Close();
+
+            //RefreshFields();
+        }
+
+        private void RefreshFields()
+        {
+            placeNumberBox.Text     = "";
+            placeNameBox.Text       = "";
+            prizeAmountBox.Text     = "";
+            prizePercentageBox.Text = "";
         }
     }
 }

@@ -89,6 +89,55 @@ namespace TrackerLibrary.DataAccess
             }
         }
 
+        public void CreateTournament(TournamentModel model)
+        {
+            using (IDbConnection connection =
+                            new System.Data.SqlClient.SqlConnection(GlobalConfig.GetConnectionString(db)))
+            {
+                SaveTournament(model, connection);
+                SaveTournamentPrizes(model, connection);
+                SaveTournamentEntries(model, connection);
+            }
+        }
+
+        private void SaveTournament(TournamentModel model, IDbConnection connection)
+        {
+            var p = new DynamicParameters();
+            p.Add("@TournamentName", model.TournamentName);
+            p.Add("@EntryFee", model.EntryFee);
+            p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+            connection.Execute("dbo.spTournaments_Insert", p, commandType: CommandType.StoredProcedure);
+
+            model.Id = p.Get<int>("@id");
+        }
+
+        private void SaveTournamentPrizes(TournamentModel model, IDbConnection connection)
+        {
+            foreach (PrizeModel pm in model.Prizes)
+            {
+                var p = new DynamicParameters();
+                p.Add("@TournamentId", model.Id);
+                p.Add("@PrizeId", pm.Id);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spTournamentPrizes_Insert", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        private void SaveTournamentEntries(TournamentModel model, IDbConnection connection)
+        {
+            foreach (var tm in model.EnteredTeams)
+            {
+                var p = new DynamicParameters();
+                p.Add("@TournamentId", model.Id);
+                p.Add("@TeamId", tm.Id);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spTournamentEntries_Insert", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
         public List<PersonModel> GetPerson_All()
         {
             List<PersonModel> output;

@@ -88,6 +88,8 @@
     <Compile Include="CreateTournament.xaml.cs">
       <DependentUpon>CreateTournament.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IPrizeRequester.cs" />
+    <Compile Include="ITeamRequester.cs" />
     <Compile Include="ProgressBar.xaml.cs">
       <DependentUpon>ProgressBar.xaml</DependentUpon>
     </Compile>

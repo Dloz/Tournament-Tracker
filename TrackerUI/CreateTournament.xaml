@@ -7,27 +7,28 @@
         mc:Ignorable="d"
         Title="Create Tournament" Height="450" Width="670.82">
     <Grid>
-        <Button x:Name="deleteSelectedPlayerButton" Content="Delete Selected" HorizontalAlignment="Left" Margin="549,130,0,0" VerticalAlignment="Top" Width="98" Height="61"
-            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4" Click="DeleteSelectedPlayerButton_Click"/>
+        <Button x:Name="removeSelectedTeamButton" Content="Remove Selected" HorizontalAlignment="Left" Margin="549,130,0,0" VerticalAlignment="Top" Width="98" Height="61"
+            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4" Click="RemoveSelectedTeamButton_Click"/>
         <Label Content="Create Tournament&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="40" Width="217" FontSize="22" FontFamily="Rockwell" Foreground="#FF0768F5"/>
         <Label Content="Tournament Name&#xA;" HorizontalAlignment="Left" Margin="27,55,0,0" VerticalAlignment="Top" Height="31" Width="217" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
         <TextBox x:Name="tournamentNameValue" HorizontalAlignment="Left" Height="23" Margin="27,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
         <Label Content="Entry Fee" HorizontalAlignment="Left" Margin="27,119,0,0" VerticalAlignment="Top" Height="31" Width="93" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
         <TextBox x:Name="entryFeeValue" HorizontalAlignment="Left" Height="31" Margin="125,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102"/>
-        <Label Content="Select Team&#xA;" HorizontalAlignment="Left" Margin="27,155,0,0" VerticalAlignment="Top" Height="31" Width="217" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
+        <Label Content="Select Team&#xA;" HorizontalAlignment="Left" Margin="27,155,0,0" VerticalAlignment="Top" Height="31" Width="112" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
         <ComboBox x:Name="teamsComboBox" HorizontalAlignment="Left" Margin="27,191,0,0" VerticalAlignment="Top" Width="200"/>
         <Button x:Name="addTeamButton" Content="Add Team" HorizontalAlignment="Left" Margin="27,223,0,0" VerticalAlignment="Top" Width="163" Height="50"
             Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4" Click="AddTeamButton_Click" />
         <Button x:Name="createPrizeButton" Content="Create Prize" HorizontalAlignment="Left" Margin="27,278,0,0" VerticalAlignment="Top" Width="163" Height="49"
-            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4"/>
+            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4" Click="CreatePrizeButton_Click"/>
         <Label Content="Teams / Players" HorizontalAlignment="Left" Margin="327,55,0,0" VerticalAlignment="Top" Height="31" Width="217" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
         <Label Content="Prizes" HorizontalAlignment="Left" Margin="327,191,0,0" VerticalAlignment="Top" Height="31" Width="217" FontSize="18" FontFamily="Rockwell" Foreground="#FF0768F5"/>
         <ListBox x:Name="tournamentTeamsListBox" HorizontalAlignment="Left" Height="100" Margin="327,91,0,0" VerticalAlignment="Top" Width="217"/>
         <ListBox x:Name="prizesListBox" HorizontalAlignment="Left" Height="100" Margin="327,227,0,0" VerticalAlignment="Top" Width="217"/>
-        <Button x:Name="deleteSelectedPrizeButton" Content="Delete Selected" HorizontalAlignment="Left" Margin="549,266,0,0" VerticalAlignment="Top" Width="98" Height="61"
-            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4"/>
+        <Button x:Name="removeSelectedPrizeButton" Content="Remove Selected" HorizontalAlignment="Left" Margin="549,266,0,0" VerticalAlignment="Top" Width="98" Height="61"
+            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4" Click="RemoveSelectedPrizeButton_Click"/>
         <Button x:Name="createTournamentButton" Content="Create Tournament" HorizontalAlignment="Left" Margin="246,348,0,0" VerticalAlignment="Top" Width="169" Height="61"
-            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4"/>
+            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderBrush="#FF1887E4" Click="CreateTournamentButton_Click"/>
+        <Button x:Name="createNewTeamButton" Content="create new" HorizontalAlignment="Left" Margin="150,162,0,0" VerticalAlignment="Top" Background="#00000000" BorderBrush="#FF1887E4" RenderTransformOrigin="0.5,0.5" Click="CreateNewTeamButton_Click"/>
 
     </Grid>
 </Window>
